@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Roundups</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/bulma.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
+    ></script>
+    <script src="js/main.js"></script>
+    <script src="js/papaparse.min.js"></script>
+    <style type="text/css" media="screen">
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      #wrapper {
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <section class="section">
+        <div class="container">
+          <div class="columns">
+            <div class="column">
+              <h1 class="title is-spaced">Roundups</h1>
+              <p class="subtitle">
+                Use roundups to find some money to save or invest. Simply
+                download your bank/credit card's statement in a CSV format and
+                choose the file here.
+              </p>
+              <div class="file has-name">
+                <label class="file-label" id="file-input-button">
+                  <input
+                    id="file-input"
+                    class="file-input"
+                    type="file"
+                    name="csv"
+                    accept=".csv"
+                    onchange="fileChosen()"
+                  />
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label"> Choose a file… </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br />
+      <section>
+        <div id="totalRoundUp" class="container is-hidden">
+          <nav class="level">
+            <!-- Left side -->
+            <div class="level-left">
+              <div class="level-item">
+                <p class="subtitle is-3">
+                  Your total roundup is <strong id="total">$</strong>
+                </p>
+              </div>
+            </div>
+
+            <!-- Right side -->
+            <div class="level-right" style="cursor: pointer">
+              <p class="level-item" onclick="toggleTables()">
+                Toggle More Info&nbsp;<i class="fas fa-table"></i>
+              </p>
+            </div>
+          </nav>
+        </div>
+      </section>
+      <section>
+        <div class="container is-hidden" id="tables">
+          <p>The column marked with * is the column used for calculations</p>
+          <table
+            class="table is-striped is-hoverable"
+            id="transactions"
+          ></table>
+        </div>
+      </section>
+    </div>
+    <footer class="footer" style="padding: 3rem 1.5rem">
+      <div class="content has-text-centered">
+        <p>
+          All data is processed on your computer.
+          <strong>No data is EVER sent to a server.</strong> I don't want your
+          bank statements.
+          <br />
+          <br />
+          <a href="https://github.com/reedhaffner/roundups">Open Source</a>.
+          Licensed under
+          <a href="https://opensource.org/licenses/GPL-3.0">GNU GPL-3.0</a>.
+          Designed with <a href="https://bulma.io/">Bulma</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
